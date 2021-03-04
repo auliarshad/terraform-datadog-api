@@ -38,7 +38,7 @@ resource "datadog_timeboard" "api" {
     autoscale = true
 
     request {
-      q    = "sum:xxt.req.count{$cluster, $environment} by {host, classname, methodname}"
+      q    = "sum:${var.custom_metric}.req.count{$cluster, $environment} by {host, classname, methodname}"
       type = "line"
     }
   }
@@ -49,7 +49,7 @@ resource "datadog_timeboard" "api" {
     autoscale = true
 
     request {
-      q    = "sum:xxt.res.count{$cluster, $environment} by {host, classname, methodname}"
+      q    = "sum:${var.custom_metric}.res.count{$cluster, $environment} by {host, classname, methodname}"
       type = "line"
     }
   }
@@ -60,7 +60,7 @@ resource "datadog_timeboard" "api" {
     autoscale = true
 
     request {
-      q    = "sum:xxt.res.ltcy.p95{$cluster, $environment} by {host, classname, methodname}"
+      q    = "sum:${var.custom_metric}.res.ltcy.p95{$cluster, $environment} by {host, classname, methodname}"
       type = "line"
     }
   }
@@ -71,7 +71,7 @@ resource "datadog_timeboard" "api" {
     autoscale = true
 
     request {
-      q    = "sum:xxt.res.exc.count{$cluster, $environment} by {host, classname, methodname}"
+      q    = "sum:${var.custom_metric}.res.exc.count{$cluster, $environment} by {host, classname, methodname}"
       type = "line"
     }
   }

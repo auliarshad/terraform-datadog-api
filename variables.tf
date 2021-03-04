@@ -37,6 +37,12 @@ variable "recipients" {
   description = "Notification recipients when both alert and warning are triggered"
 }
 
+variable "custom_metric" {
+  type        = "string"
+  default     = "api"
+  description = "custom name of the metric"
+}
+
 variable "alert_recipients" {
   type        = "list"
   default     = []
